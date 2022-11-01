@@ -1,0 +1,80 @@
+.box {
+    background-color: #1F3540;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    border-radius: 4px;
+    padding: 12px;
+    width: 260px;
+    text-align: center;
+}
+
+h1 {
+    color: #fff;
+    font-size: 0.8em;
+    letter-spacing: 1px;
+}
+
+span {
+    color: #aaa;
+    font-size: 0.6em;
+    letter-spacing: 1px;
+}
+
+.marker-container {
+    display: flex;
+    width: 100%;
+    background-color: #1A2B32;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+
+.marker-container div {
+    width: 50%;
+    padding: 10px;
+    color: #A9BEC9;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 6px;
+    border-radius: 4px;
+}
+
+.marker-container div.active {
+    background-color: #A9BEC9;
+    color: #1A2B32;
+}
+
+.buttons {
+    margin: 20px 0;
+    width: 260px;
+}
+
+button {
+    cursor: pointer;
+    width: 100%;
+    padding: 8px;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+    margin: 5px 0;
+    font-weight: bold;
+    transition: 0.5s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+button.vs-cpu {
+    background-color: #F2B236;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+button.vs-player {
+    background-color: #31C4BE;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+

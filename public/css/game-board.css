@@ -1,0 +1,217 @@
+.top-row, .bottom-row {
+    width: 260px;
+    display: flex;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    margin: 10px;
+}
+
+.grid-container div {
+    width: 80px;
+    height: 80px;
+    background-color: #1F3540;
+    border-radius: 4px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.grid-container div:active {
+    transform: scale(0.9);
+}
+
+.top-row div, .bottom-row div {
+    width: 80px;
+}
+
+.X, .O { 
+    font-weight: 800;
+    font-size: 1.2em;
+}
+
+.X {
+    color: #31C4BE;
+}
+
+.O {
+    color: #F2B236;
+}
+
+.turn {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #1F3540;
+    border-radius: 4px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    color: #aaa;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: center;
+    font-size: 0.7em;
+}
+
+.turn span {
+    font-size: 1.2em;
+}
+
+.refresh {
+    text-align: right;
+    position: relative
+}
+
+.refresh div {
+    position: absolute;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    background-color: #aaa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    transition: 0.5s;
+}
+
+.refresh div:active {
+    transform: scale(0.9);
+}
+
+
+.grid-container div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.grid-container div.X {
+    color: #31C4BE;
+}
+
+.grid-container div.O {
+    color: #F2B236;
+}
+
+.grid-container div.O.win {
+    background-color: #F2B236;
+    color: #192A32;
+}
+.grid-container div.X.win {
+    background-color: #31C4BE;
+    color: #192A32;
+}
+
+
+.me, .ties, .opponent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    font-weight: 400;
+    font-size: 0.8em;
+    color: black;
+}
+
+.me span, .ties span, .opponent span {
+    font-weight: 800;
+}
+
+.me.X, .opponent.X {
+    background-color: #31C4BE;
+}
+
+.me.O, .opponent.O {
+    background-color: #F2B236;
+}
+
+.ties {
+    background-color: #aaa;
+}
+
+.background-modal {
+    background-color: #0b131a6c;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    z-index: 999;
+    display: none;
+}
+
+.modal {
+    width: 100%;
+    background-color: #1E3640;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal p {
+    color: white;
+    margin-top: 30px;
+}
+
+.modal h1 {
+    margin-top: 30px;
+    text-align: center;
+    padding: 0 5px;
+}
+
+.modal h1.X {
+    color: #31C4BE;
+}
+
+.modal h1.O {
+    color: #F2B236;
+}
+
+.modal h1 span {
+    font-size: 1.4em;
+}
+
+.buttons {
+    margin: 30px 0;
+}
+
+.buttons button {
+    padding: 10px;
+    margin: 4px;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.buttons button:hover {
+    transform: translateY(-5px);
+}
+
+.buttons button:active {
+    transform: scale(0.9);
+}
+
+.quit {
+    background-color: #A9BEC9;
+}
+
+.next {
+    background-color: #ECB336;
+}

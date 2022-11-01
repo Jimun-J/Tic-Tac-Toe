@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="css/home.css">
+
+    <%- include("partials/global-style") -%>
+    <title>Tic Tac Toe</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="box">
+            <h1>Pick Player 1's Mark</h1>
+            <div class="marker-container">
+                <div class="toggle active">X</div>
+                <div class="toggle">O</div>
+            </div>
+            <span>Remember: X goes first</span>
+        </div>
+        <div class="buttons">
+            <button class="vs-cpu">New Game (vs CPU)</button>
+            <button class="vs-player">New Game (vs Player)</button>
+        </div>
+    </div>
+
+    <script src="js/home.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="css/game-board.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <%- include("partials/global-style") -%>
+    
+    <title>Tic Tac Toe (vs CPU)</title>
+</head>
+<body>
+    <div class="background-modal">
+        <div class="modal">
+            <p>YOU WON!</p>
+            <h1><span></span> TAKES THE ROUND</h1>
+            <div class="buttons">
+                <button class="quit">QUIT</button>
+                <button class="next">NEXT ROUND</button>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="top-row">
+            <div><span class="<%= marker %>"><%= marker %></span> <span class="<%= marker_opposite%>"><%= marker_opposite%></span></div>
+            <div class="turn"><span>X</span> TURN</div>
+            <div class="refresh">
+                <div>
+                    <i class="fa-solid fa-arrows-rotate"></i>
+                </div>
+            </div>
+        </div>
+        <div class="grid-container">
+            <div id="0"></div>
+            <div id="1"></div>
+            <div id="2"></div>
+            <div id="3"></div>
+            <div id="4"></div>
+            <div id="5"></div>
+            <div id="6"></div>
+            <div id="7"></div>
+            <div id="8"></div>
+        </div>
+        <div class="bottom-row">
+            <div class="me <%= marker %>"><%= marker %> (YOU) <span>0</span></div>
+            <div class="ties">TIES <span>0</span></div>
+            <div class="opponent <%= marker_opposite %>"><%= marker_opposite %> (CPU) <span>0</span></div>
+        </div>
+    </div>
+
+    <script src="js/vs-cpu.js"></script>
+</body>
+</html>
