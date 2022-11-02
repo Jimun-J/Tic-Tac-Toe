@@ -13,6 +13,17 @@ h1 {
     letter-spacing: 1px;
 }
 
+.game-name {
+    width: 100%;
+    text-align: center;
+    margin: 20px 0;
+    font-size: 1.5em;
+}
+
+.game-name span {
+    font-size: 1.5em;
+}
+
 span {
     color: #aaa;
     font-size: 0.6em;
