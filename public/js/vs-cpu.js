@@ -147,6 +147,8 @@ const showResult = (winner) => {
 const showTiedResult = () => {
     ties++;
     $('.ties span').text(ties);
+    $('.modal p').text("TIED");
+    $('.modal h1 span').text("NO ONE");
     showModal();
 }
 
@@ -189,7 +191,7 @@ const nextRound = () => {
     initializeGame();
 }
 
-const quickGame = () => {
+const quitGame = () => {
     $.ajax('/', {
         type: 'GET',
         success: () => {
@@ -206,7 +208,7 @@ $('.refresh').click((e) => {
     initializeGame();
 })
 
-$('.quit').click(quickGame);
+$('.quit').click(quitGame);
 $('.next').click(nextRound);
 
 initializeGame();

@@ -10,8 +10,12 @@ $('button').click((e) => {
             marker: $('.active').html(),
             gameMode: e.target.classList.value,
         },
-        success: () => {
-            window.location.href = `/${e.target.classList.value}`;
+        success: (data) => {
+            if (data.gameMode === 'vs-cpu') {
+                window.location.href = `/${e.target.classList.value}`;
+            } else {
+                window.location.href = `/${e.target.classList.value}/${data.roomId}`;
+            }       
         }
     });
 });

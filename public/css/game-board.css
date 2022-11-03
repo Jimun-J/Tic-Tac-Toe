@@ -5,6 +5,11 @@
     margin: 10px;
 }
 
+.player-mode-top-row {
+    width: 260px;
+    margin: 10px;
+}
+
 .grid-container {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -44,7 +49,7 @@
     color: #F2B236;
 }
 
-.turn {
+.turn, .player-mode-turn {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -58,7 +63,22 @@
     font-size: 0.7em;
 }
 
-.turn span {
+.player-mode-turn {
+    width: 100%;
+    padding: 10px;
+    color: white;
+
+}
+
+.player-mode-turn.player1 {
+    background-color: #31C4BE;
+}
+
+.player-mode-turn.player2 {
+    background-color: #F2B236;
+}
+
+.turn span, .player-mode-turn span {
     font-size: 1.2em;
 }
 
@@ -128,11 +148,11 @@
     font-weight: 800;
 }
 
-.me.X, .opponent.X {
+.me.X, .opponent.X, .me.blue, .opponent.blue {
     background-color: #31C4BE;
 }
 
-.me.O, .opponent.O {
+.me.O, .opponent.O, .me.yellow, .opponent.yellow {
     background-color: #F2B236;
 }
 
