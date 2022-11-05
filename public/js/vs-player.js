@@ -242,6 +242,7 @@ const showResult = (winner) => {
 
 const showTiedResult = () => {
     tied++;
+    playerWon = null;
     $('.ties span').text(tied);
     $('.modal p').text("TIED");
     $('.modal h1 span').text("NO ONE");
@@ -251,7 +252,6 @@ const showTiedResult = () => {
 
 $('.next').click(() => {
     socket.emit("go-next-round", { roomId, winner: playerWon });
-    playerWon = null;
 })
 
 $('.quit').click(() => {
