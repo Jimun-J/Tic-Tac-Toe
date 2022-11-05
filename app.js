@@ -25,10 +25,12 @@ app.post('/game-mode', (req, res) => {
     marker = req.body.marker;
     if (req.body.gameMode === 'vs-cpu') {
         res.json({ gameMode: 'vs-cpu' });
-    } else {
+    } else if (req.body.gameMode === 'vs-player') {
         const randomStr = randomstring.generate(10);
         rooms.push({ roomId: randomStr });
         res.json({ gameMode: 'vs-player', roomId: randomStr });
+    } else {
+        res.json({ gameMode: 'join-room'});
     }
 });
 
@@ -45,16 +47,35 @@ app.get('/vs-cpu', (req, res) => {
 });
 
 app.get('/vs-player/:roomId', (req, res) => {
-    if (!rooms.find(room => room.roomId === req.params.roomId)) {
+    let room = rooms.find(room => room.roomId === req.params.roomId);
+    if (!room) {
         res.redirect('/');
     } else {
-        res.render("vs-player");
+        res.render("vs-player", { roomId: room.roomId });
     }
 });
 
+app.post('/join', (req, res) => {
+    const roomId = req.body.roomId;
+    let room = rooms.find(room => room.roomId === roomId);
+    if (room) {
+        if (room.players.length === 2) {
+            res.json({ roomExist: true, roomFull: true });
+        } else {
+            res.json({ roomExist: true, roomFull: false });
+        }
+    } else {
+        res.json({ roomExist: false });
+    }
+})
+
 io.on('connection', (socket) => {
+    socket.on("create-room", ({ roomId }) => {  
+        socket.join(roomId);
+    })
+
     socket.on("find-room", ({ roomId }) => {
-        let room = rooms.find(room => room.roomId === roomId);
+        let room = rooms.find(room => room.roomId === roomId); 
         socket.emit("room-found", { room });
     })
 
@@ -62,23 +83,62 @@ io.on('connection', (socket) => {
         let room = rooms.find(room => room.roomId === roomId);
         if (!room.hasOwnProperty('players')) {
             room.players =[{ player }];
-            io.sockets.emit("room-entered", ({ room }));
+            socket.join(roomId);
+            io.to(roomId).emit("room-entered", ({ room }));
         } else if (room.players.length === 2) {
             socket.emit("room-is-full");
         } else {
             room.players.push({ player });
-            io.sockets.emit("room-entered", ({ room }));
+            socket.join(roomId);
+            io.to(roomId).emit("room-entered", ({ room }));
         }
     })
 
-    socket.on("click", ({ player, id }) => {
-        console.log(player);
-        console.log(id);
-        io.sockets.emit("clicked", { player, id });
+    socket.on("startGame", ({ roomId }) =>{
+        io.to(roomId).emit("gameStarted");
+    })
+
+    socket.on("click", ({ player, id, roomId }) => {
+        io.to(roomId).emit("clicked", { player, id });
+    })
+
+    socket.on("go-next-round", ({ roomId, winner }) => {
+        io.to(roomId).emit("moved-to-next-round", { winner });
+    })
+
+    socket.on("change-player-info", ({ playerInfo, roomId }) => {
+        let room = rooms.find(room => room.roomId === roomId);
+        room.players[0] = playerInfo;
+    })
+
+    socket.on("quit", ({ roomId }) => {
+        io.to(roomId).emit("disconnect-by-pressing-quit");
+        socket.disconnect();
     })
     
     socket.on('disconnect', () => {
-        console.log('user disconnected');
+        let playerId = socket.id;
+
+        for (let i = 0; i < rooms.length; i++) {
+            let players = rooms[i].players;
+            let player = players.find(player => player.player.id === playerId);
+            if (player) {
+                const index = rooms[i].players.indexOf(player);
+                if (index > -1) {
+                    rooms[i].players.splice(index, 1);
+                }
+            }
+
+            // no players left in the room
+            if (rooms[i].players.length === 0) {
+                socket.leave(rooms[i].roomId);
+                rooms.splice(i, 1);            
+                break;
+            } else if (rooms[i].players.length === 1) {
+                io.to(rooms[i].roomId).emit("player-left", { playerId });
+                break;
+            }
+        }
     });
 });
 

@@ -26,6 +26,9 @@
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     cursor: pointer;
     transition: 0.4s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .grid-container div:active {
@@ -66,8 +69,8 @@
 .player-mode-turn {
     width: 100%;
     padding: 10px;
-    color: white;
-
+    color: black;
+    background-color: #31C4BE;
 }
 
 .player-mode-turn.player1 {
@@ -104,13 +107,6 @@
 
 .refresh div:active {
     transform: scale(0.9);
-}
-
-
-.grid-container div {
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .grid-container div.X {
@@ -160,7 +156,7 @@
     background-color: #aaa;
 }
 
-.background-modal {
+.background-modal, .waiting-room {
     background-color: #0b131a6c;
     width: 100vw;
     height: 100vh;
@@ -169,7 +165,7 @@
     display: none;
 }
 
-.modal {
+.modal, .waiting-list {
     width: 100%;
     background-color: #1E3640;
     position: absolute;
@@ -186,18 +182,18 @@
     margin-top: 30px;
 }
 
-.modal h1 {
-    margin-top: 30px;
-    text-align: center;
-    padding: 0 5px;
-}
-
 .modal h1.X {
     color: #31C4BE;
 }
 
 .modal h1.O {
     color: #F2B236;
+}
+
+.modal h1 {
+    margin-top: 30px;
+    text-align: center;
+    padding: 0 5px;
 }
 
 .modal h1 span {
@@ -234,4 +230,53 @@
 
 .next {
     background-color: #ECB336;
+}
+
+.waiting-room {
+    display: block;
+}
+
+.waiting-list {
+    color: white;
+    padding-bottom: 30px;
+}
+
+.waiting-list h1 {
+    margin-top: 15px;
+}
+
+.waiting-list h1 span {
+    text-transform: none;
+}
+
+.waiting-list p {
+    text-transform: none;
+    color: #aaa;
+    font-size: 0.8em;
+}
+
+.first-player {
+    margin-top: 30px;
+    display: none;
+}
+
+.second-player {
+    margin-bottom: 30px;
+    display: none;
+}
+
+.waiting-list button {
+    width: 160px;
+    margin: 15px 0 0 0;
+    padding: 7px;
+    border-radius: 4px;
+    background-color: #bbb;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.start {
+    display: none;
 }

@@ -13,19 +13,32 @@
 </head>
 
 <body>
+    <div class="background-modal">
+        <div class="modal">
+            <div>
+                <h1>Enter the Room ID You Want to Join</h1>
+                <p class="warning"></p>
+                <input type="text" name="roomId" autocomplete="off">
+                <button class="join">Join</button>
+            </div>
+            <button class="back-to-home">Back to home</button>
+        </div>
+    </div>
     <div class="container">
         <h1 class="game-name">Welcome to <br> <span>Tic-Tac-Toe</span></h1>
         <div class="box">
-            <h1>Pick Player 1's Mark</h1>
+            <h1>Pick Player1's Marker</h1>
             <div class="marker-container">
                 <div class="toggle active">X</div>
                 <div class="toggle">O</div>
             </div>
-            <span>Remember: X goes first</span>
+            <span>Remember: X goes first</span><br>
+            <span class="p2p">P2P mode does not provide choosing marker</span>
         </div>
         <div class="buttons">
             <button class="vs-cpu">New Game (vs CPU)</button>
-            <button class="vs-player">New Game (vs Player)</button>
+            <button class="vs-player">Create a room (vs Player)</button>
+            <button class="join-room">Join Room</button>
         </div>
     </div>
 

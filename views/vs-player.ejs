@@ -13,26 +13,38 @@
 
 <body>
     <%# A pop-up modal that shows the result %>
-        <%- include("partials/show-result") -%>
+    <%- include("partials/show-result") -%>
 
-        <%# Game Board %>
-        <div class="container">
-
-            <%# Indicator for whose turn it is %>
-            <div class="player-mode-top-row">
-                <div class="player-mode-turn"><span>X</span> TURN</div>
-            </div>
-
-            <%# Tic-Tac-Toe Game Board %>
-            <%- include("partials/grid-container") -%>
-
-            <%# Score %>
-            <div class="bottom-row">
-                <div class="me"> (YOU) <span>0</span></div>
-                <div class="ties"> TIES <span>0</span></div>
-                <div class="opponent"> (OPPONENT) <span>0</span></div>
-            </div>
+    <div class="waiting-room">
+        <div class="waiting-list">
+            <h1>ROOM CODE: <span><%= roomId %></span></h1>
+            <p>
+                Another player can join the room by entering this code from home
+            </p>
+            <div class="first-player">Player 1</div>
+            <div class="second-player">Player 2</div>
+            <button class="start">Start</button>
         </div>
+    </div>
+
+    <%# Game Board %>
+    <div class="container">
+
+        <%# Indicator for whose turn it is %>
+        <div class="player-mode-top-row">
+            <div class="player-mode-turn"><span>X</span> TURN</div>
+        </div>
+
+        <%# Tic-Tac-Toe Game Board %>
+        <%- include("partials/grid-container") -%>
+
+        <%# Score %>
+        <div class="bottom-row">
+            <div class="me"> (YOU) <span>0</span></div>
+            <div class="ties"> TIES <span>0</span></div>
+            <div class="opponent"> (OPPONENT) <span>0</span></div>
+        </div>
+    </div>
 
     <script src="/socket.io/socket.io.js"></script>
     <script src="../js/vs-player.js"></script>
