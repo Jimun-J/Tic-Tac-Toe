@@ -3,9 +3,7 @@
 
 ## Overview
 ### The challenge
-(vs CPU)
 - Game logic
-(vs Player)
 - Creating multiple rooms using socket 
 - Mapping users to specific rooms
 - Limiting users in each room
