@@ -1,11 +1,6 @@
 # Tic-Tac-Toe
- Tic Tac Toe game (two modes available: (vs cpu), (vs player))
+ Tic Tac Toe. This game provides PvP and CPU mode.
  - [Website](https://tictactoe-jimun.herokuapp.com/)
-
-## Overview
-This game provides PvP and CPU mode. 
-Using Socket.io, this game provides multiple rooms where two players can play one against another.
-
 
 ### The challenge
 - Game logic
@@ -22,8 +17,8 @@ Using Socket.io, this game provides multiple rooms where two players can play on
 #### vs Player
 ![](./vs-player.png?raw=true "vs CPU Page")
 
-## My process
-### Built with
+### My process
+#### Built with
 - Semantic HTML5 markup
 - CSS custom properties
 - CSS Grid
@@ -32,12 +27,12 @@ Using Socket.io, this game provides multiple rooms where two players can play on
 - EJS (view engine)
 - heroku (app hosting)
 
-## Author
+### Author
 - Website - [Jimun Jang](https://tictactoe-jimun.herokuapp.com/)
 - Design Reference - [Design](https://www.frontendmentor.io/challenges/tic-tac-toe-game-Re7ZF_E2v)
 
 
-## Next Steps
+### Next Steps
 - separate game logic into a separate file (modularize)
 - level of difficulties in CPU mode (from randomly clicking to actually blocking the winning rows)
 - time clock in (vs player) mode
