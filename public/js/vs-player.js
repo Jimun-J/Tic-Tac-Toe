@@ -270,7 +270,6 @@ socket.on("moved-to-next-round", ({ winner }) => {
     
     
         playerWon.player.score++;
-        resetGame();
     
         if (socket.id === winner.id) {
             $('.me span').text(playerWon.player.score);
