@@ -1,8 +1,12 @@
 # Tic-Tac-Toe
  Tic Tac Toe game (two modes available: (vs cpu), (vs player))
- [Website](https://tictactoe-jimun.herokuapp.com/)
+ - [Website](https://tictactoe-jimun.herokuapp.com/)
 
 ## Overview
+This game provides PvP and CPU mode. 
+Using Socket.io, this game provides multiple rooms where two players can play one against another.
+
+
 ### The challenge
 - Game logic
 - Creating multiple rooms using socket 
