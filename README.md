@@ -28,7 +28,7 @@
 - heroku (app hosting)
 
 ### Author
-- Website - [Jimun Jang](https://tictactoe-jimun.herokuapp.com/)
+- Website - [Jimun Jang](https://jj-tic-tac-toe.onrender.com/)
 - Design Reference - [Design](https://www.frontendmentor.io/challenges/tic-tac-toe-game-Re7ZF_E2v)
 
 
